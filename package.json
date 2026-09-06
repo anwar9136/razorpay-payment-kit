@@ -1,12 +1,21 @@
 {
   "name": "razorpay-payment-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable, domain-agnostic Razorpay payment integration for Express and Mongoose applications",
   "type": "module",
   "main": "index.js",
   "exports": {
     ".": "./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anwar9136/razorpay-payment-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/anwar9136/razorpay-payment-kit/issues"
+  },
+  "homepage": "https://github.com/anwar9136/razorpay-payment-kit#readme",
+
   "files": [
     "index.js",
     "config/paymentServiceConfig.js",
