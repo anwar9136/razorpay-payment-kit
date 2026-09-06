@@ -1,0 +1,56 @@
+{
+  "name": "razorpay-payment-kit",
+  "version": "1.0.0",
+  "description": "Reusable, domain-agnostic Razorpay payment integration for Express and Mongoose applications",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "config/paymentServiceConfig.js",
+    "config/razorpay.js",
+    "controllers",
+    "middleware",
+    "models",
+    "routes",
+    "utils",
+    "validators",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "dev": "nodemon dev/server.js",
+    "start": "node dev/server.js"
+  },
+  "keywords": [
+    "razorpay",
+    "payments",
+    "express",
+    "mongoose",
+    "webhook"
+  ],
+  "author": "Anwar Shaikh",
+  "license": "MIT",
+  "dependencies": {
+    "express-rate-limit": "^8.6.2",
+    "razorpay": "^2.9.8",
+    "zod": "^4.4.3"
+  },
+  "peerDependencies": {
+    "express": ">=5.0.0",
+    "mongoose": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.1.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "mongoose": "^9.8.0",
+    "morgan": "^1.11.0",
+    "nodemon": "^3.1.14",
+    "rotating-file-stream": "^3.2.10"
+  }
+}
