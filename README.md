@@ -1,5 +1,9 @@
 # Payment Service — Reusable Razorpay Payment Module
 
+![npm version](https://img.shields.io/npm/v/razorpay-payment-kit)
+![npm downloads](https://img.shields.io/npm/dm/razorpay-payment-kit)
+![license](https://img.shields.io/npm/l/razorpay-payment-kit)
+
 A standalone, drop-in Razorpay payment module built for reuse across freelance MERN projects. Each project gets its own copy of this module, its own database, and its own Razorpay account — no shared infrastructure between clients.
 
 This document is written so you (or anyone else) can understand and integrate this module **without reading the source code**.
@@ -477,100 +481,3 @@ This is called by Razorpay's servers directly, authenticated via signature (not 
 8. [Anytime]
    Host backend → GET /status?entityType=X&entityId=Y → current full state
 ```
-
-
-<!-- # razorpay-payment-kit
-
-Reusable Razorpay payment routes for Express and Mongoose applications.
-
-This package owns payment integration, validation, authentication, idempotency,
-webhook handling, and payment models. The host application owns its Express
-server, MongoDB connection, environment variables, logging, and `app.listen()`.
-
-## Install
-
-```bash
-npm install razorpay-payment-kit
-```
-
-The host application must provide Express and Mongoose as peer dependencies.
-
-## Usage
-
-```js
-import express from 'express';
-import mongoose from 'mongoose';
-import {
-  initPaymentService,
-  createPaymentRouter,
-  Payment,
-} from 'razorpay-payment-kit';
-
-await mongoose.connect(process.env.MONGO_URI);
-
-initPaymentService({
-  razorpayKeyId: process.env.RAZORPAY_KEY_ID,
-  razorpaySecret: process.env.RAZORPAY_KEY_SECRET,
-  webhookSecret: process.env.RAZORPAY_WEBHOOK_SECRET,
-  apiKey: process.env.PAYMENT_SERVICE_API_KEY,
-});
-
-const app = express();
-app.use('/api/payments', createPaymentRouter());
-app.listen(3000);
-```
-
-The package router includes these endpoints:
-
-- `POST /create-order`
-- `POST /verify-payment`
-- `POST /refund`
-- `GET /status`
-- `POST /webhook`
-
-Mount the package router before a host-level `express.json()` middleware. The
-router installs `express.raw()` for `/webhook` so Razorpay's signature can be
-verified against the original request body.
-
-## Configuration
-
-Call `initPaymentService()` once during host application startup, before serving
-requests. The package does not read Razorpay or API-key secrets from its own
-`.env` file. It receives those values from the host application.
-
-Required options:
-
-- `razorpayKeyId`
-- `razorpaySecret`
-- `webhookSecret`
-- `apiKey`
-
-## Public API
-
-```js
-import {
-  createPaymentRouter,
-  paymentRouter,
-  Payment,
-  initPaymentService,
-} from 'razorpay-payment-kit';
-```
-
-`createPaymentRouter()` is useful when a host needs a fresh router instance.
-`paymentRouter` is a ready-made equivalent. Controllers, middleware,
-validators, and internal configuration helpers are intentionally not public API.
-
-## Development
-
-This repository contains a development-only server in `dev/server.js`. It loads
-local environment variables, connects to MongoDB, configures logging, and starts
-an HTTP server. Importing the package entry point does none of those things.
-
-```bash
-npm test
-npm run start
-npm pack --dry-run
-```
-
-Never commit or publish `.env`, logs, API keys, Razorpay secrets, or MongoDB
-credentials. -->
